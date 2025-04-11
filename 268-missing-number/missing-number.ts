@@ -1,14 +1,5 @@
 function missingNumber(nums: number[]): number {
-    let missing: number = 0;
-    let sortedArr: number[] = nums.sort((a, b) => a - b)
-
-    for(let i = 0; i <= sortedArr.length; i++){
-        if(missing === sortedArr[i]){
-            missing++
-        }  else {
-            return missing 
-        }
-    }
-
-    return missing;
+let expectedSum = (nums.length * (nums.length + 1)) / 2;
+let actualSum = nums.reduce((acc, val) => acc + val);
+return expectedSum - actualSum;
 }
