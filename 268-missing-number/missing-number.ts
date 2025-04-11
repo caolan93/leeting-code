@@ -9,4 +9,6 @@ function missingNumber(nums: number[]): number {
             return missing 
         }
     }
+
+    return missing;
 }
