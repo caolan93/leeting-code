@@ -1,17 +1,21 @@
 function isIsomorphic(s: string, t: string): boolean {
-    if (s.length !== t.length) return false
+    if (s.length !== t.length) return false;
 
-    let mapS = new Map()
-    let mapT = new Map()
+    const mapST = new Map<string, string>();
+    const mapTS = new Map<string, string>();
 
-    for (let x = 0; x < s.length; x++) {
-        if (mapS.get(s[x]) && mapS.get(s[x]) !== t[x] || mapT.get(t[x]) && mapT.get(t[x]) !== s[x]){
-            return false
+    for (let i = 0; i < s.length; i++) {
+        const charS = s[i];
+        const charT = t[i];
+
+        if ((mapST.has(charS) && mapST.get(charS) !== charT) ||
+            (mapTS.has(charT) && mapTS.get(charT) !== charS)) {
+            return false;
         }
 
-        mapS.set(s[x], t[x])
-        mapT.set(t[x], s[x])
+        mapST.set(charS, charT);
+        mapTS.set(charT, charS);
     }
 
-    return true
-};
+    return true;
+}
