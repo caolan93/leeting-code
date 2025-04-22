@@ -5,6 +5,12 @@ function areOccurrencesEqual(s: string): boolean {
         map.set(char, (map.get(char) || 0) + 1);
     }
 
-    const firstCount = [...map.values()][0];
-    return [...map.values()].every(count => count === firstCount);
+    const iter = map.values();
+    const first = iter.next().value;
+
+    for (const count of iter) {
+        if (count !== first) return false;
+    }
+
+    return true;
 }
