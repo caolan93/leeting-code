@@ -1,5 +1,5 @@
 function longestCommonPrefix(strs: string[]): string {
-    if (!strs.length) return ""
+    if (!strs) return ""
 
     for(let i = 0; i < strs[0].length; i++){
         for(let j = 0; j < strs.length; j++){
